@@ -6,8 +6,6 @@
       <tr>
         <th>Judul</th>
         <th>Isi</th>
-        <th>Dibuat</th>
-        <th>Diperbaharui</th>
         <th>
           <a href="/pertanyaan/create" class="btn btn-success">Add New Question</a> 
         </th>
@@ -18,13 +16,11 @@
       <tr>
       <td>{{$item->judul}}</td>
       <td>{{$item->isi}}</td>
-      <td>{{$item->created_at}}</td>
-      <td>{{$item->updated_at}}</td>
-      
-      <form action="/jawaban/{{$item->id}}" method="POST">
+      <form action="/pertanyaan/{{$item->id}}" method="POST">
         @csrf
         <td>
           <input name = "id" value="{{$item->id}}" hidden>
+          <button type="submit" class="badge-pill badge-secondary">detail</button>
           <a href="/jawaban/{{$item->id}}" class="btn btn-primary">Answer</a> 
         </td>
       </form>

@@ -16,7 +16,7 @@ use Whoops\Run;
 */
 
 Route::get('/', function () {
-    return view('interact.index');
+    return view('layouts.master');
 });
 Route::get('/item', 'ItemController@index');
 Route::get('/item/create', 'ItemController@create');
@@ -24,5 +24,9 @@ Route::post('/item', 'ItemController@store');
 Route::get('/pertanyaan', 'PertanyaanController@index');
 Route::get('/pertanyaan/create', 'PertanyaanController@create');
 Route::post('/pertanyaan', 'PertanyaanController@store');
+Route::post('/pertanyaan/{id}', 'PertanyaanController@show');
 Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index');
 Route::post('/jawaban/{pertanyaan_id}', 'JawabanController@Store');
+Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@showEdit');
+Route::put('/pertanyaan/{id}', 'PertanyaanController@insertEdit');
+Route::delete('/pertanyaan/{id}', 'PertanyaanController@delete');
