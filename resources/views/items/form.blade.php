@@ -2,6 +2,7 @@
 
 @section('content')
 <form action= "/item" method= "POST">
+    {{-- @method('put') --}}
     @csrf
         <div class="form-group">
           <label for="name">Name</label>
@@ -18,6 +19,14 @@
         <div class="form-group ">
           <label for="price">Price</label>
             <input type="text" class="form-control" placeholder="Enter Price" name="price" id="price">
+        </div>
+        <div class="form-group ">
+          <label for="category_id">Kategori</label>
+          <select name="category_id" class="form-control" id="category_id">
+            @foreach ($categories as $category)
+          <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+          </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>  

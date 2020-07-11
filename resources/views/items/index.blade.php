@@ -9,6 +9,7 @@
         <th>Description</th>
         <th>Price</th>
         <th>Stock</th>
+        <th>Category</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +20,12 @@
       <td>{{$item->description}}</td>
         <td>{{$item->price}}</td>
         <td>{{$item->stock}}</td>
+        @foreach ($category as $items => $value)
+            
+        @if ($item->category_id == $value->id)
+        <td>{{$value->name}}</td>
+        @endif
+        @endforeach
     </tr> 
     @endforeach
     </tbody>
